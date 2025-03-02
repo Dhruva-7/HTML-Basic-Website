@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime World - About</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .message {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>About Anime World</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section>
+        <h2>About Us</h2>
+        <p>Anime World is dedicated to bringing you the latest news, reviews, and updates from the anime universe. Whether you're a long-time fan or new to anime, we have something for everyone.</p>
+        <p>Our mission is to create a community where anime lovers can come together to share their passion and discover new shows.</p>
+
+        <h3>Messages from Users:</h3>
+        <div id="messages"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Anime World. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fetch messages from local storage
+        const messages = JSON.parse(localStorage.getItem('messages')) || [];
+        const messagesContainer = document.getElementById('messages');
+
+        messages.forEach((message) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            messageDiv.innerHTML = `
+                <strong>${message.name || 'Anonymous'}</strong><br>
+                <em>${message.email || 'No email'}</em><br>
+                <p>${message.message}</p>
+            `;
+            messagesContainer.appendChild(messageDiv);
+        });
+    </script>
+
+</body>
+</html>
